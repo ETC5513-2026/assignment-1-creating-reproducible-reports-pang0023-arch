@@ -1,5 +1,20 @@
 ---
 title: "Marketing Report"
-format: html
+format:
+    html: 
+        theme: cosmo
+    pdf:
+        toc: false
 ---
 
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Libraries required in this report. Install packages as required.
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+```
