@@ -18,3 +18,6 @@ library(dplyr)
 library(tidyverse)
 library(ggplot2)
 ```
+
+### Introduction
+This report investigates if higher marketing spend per customer lead to higher purchase amounts across different customer segments (Enterprise, SMB and Consumer). Understanding this relationship will allow us to optimise future marketing budget towards the most responsive customer group.
