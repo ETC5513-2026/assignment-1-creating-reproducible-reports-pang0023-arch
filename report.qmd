@@ -38,10 +38,22 @@ campaign_data_clean <- campaign_data |>
     select(-notes)
 ```
 
-This dataset records a total of 132 different customers. It keeps a record of the signup_date, marketing_spend, number of website visits, purchase_amount, and the customer segment (Consumer, SMB or Enterprise).
+The cleaned dataset records a total of 132 different customers. It keeps a record of the 'signup_date', 'marketing_spend', number of website 'visits', 'purchase_amount', and the customer 'segment' (Consumer, SMB or Enterprise).
 
-During cleaning, signup_date was stored as a character string with inconsistent formats (e.g. '2025-08-22', 'May 17, 2025', '21/12/2024'). It was then converted to a consistent ISO date format. 
+During cleaning, 'signup_date' was stored as a character string with inconsistent formats (e.g. '2025-08-22', 'May 17, 2025', '21/12/2024'). It was then converted to a consistent ISO date format. 
 
-The notes column was also removed as it was to inconsistently documented and not relevant to the research question. 
+The'notes' column was also removed as it was to inconsistently documented and not relevant to the research question. 
 
-Rows with missing purchase_amount were also removed as they are unrecorded data that cannot contribute to the analysis.
+Rows with missing 'purchase_amount' were also removed as they are unrecorded data that cannot contribute to the analysis.
+
+#### Dataset Description
+The cleaned data set contains `r nrow(campaign_data_clean)` observations and `r ncol(campaign_data_clean)` variables.
+
+
+```{r}
+ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount)) + 
+    geom_point() +
+    labs(title = "Marketing Spend vs Purchase Amount",
+        x = "Marketing Spend ($)",
+        y = "Purchase Amount ($)")
+```
