@@ -9,14 +9,16 @@ format:
 
 
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
+#| include: false
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, warning = FALSE, message = FALSE) 
+```
 
+```{r}
 # Libraries required in this report. Install packages as required.
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
+library(lubridate)
 ```
 
 ### Introduction
@@ -25,6 +27,21 @@ This report investigates wether higher marketing spend per customer lead to high
 ### Research question
 We want to know if higher marketing spend per customer lead to higher purchase amounts by using 'marketing_spend' and 'purchase_amount' from the campaign data. A linear regression model will be used to determine if marketing spend can effectively predict customer purchase amount.
 
+### Dataset Introduction
+```{r}
+campaign_data <- read.csv("data/35789190_Pei_Ang.csv")
 
+campaign_data_clean <- campaign_data |> 
+    mutate(signup_date = na_if(signup_date, "N/A"),
+        signup_date = as_date(parse_date_time(signup_date, orders = c("ymd", "dmy", "BdY")))) |> 
+    filter(!is.na(purchase_amount)) |> 
+    select(-notes)
+```
 
+This dataset records a total of 132 different customers. It keeps a record of the signup_date, marketing_spend, number of website visits, purchase_amount, and the customer segment (Consumer, SMB or Enterprise).
 
+During cleaning, signup_date was stored as a character string with inconsistent formats (e.g. '2025-08-22', 'May 17, 2025', '21/12/2024'). It was then converted to a consistent ISO date format. 
+
+The notes column was also removed as it was to inconsistently documented and not relevant to the research question. 
+
+Rows with missing purchase_amount were also removed as they are unrecorded data that cannot contribute to the analysis.
