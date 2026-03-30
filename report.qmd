@@ -57,3 +57,16 @@ ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount)) +
         x = "Marketing Spend ($)",
         y = "Purchase Amount ($)")
 ```
+
+
+```{r}
+campaign_data_clean |> 
+    group_by(segment) |> 
+    summarise(
+        avg_marketing_spend = mean(marketing_spend),
+        avg_visits = mean(visits),
+        avg_purchase = mean(purchase_amount),
+        n = n()
+    ) |> 
+    knitr::kable()
+```
