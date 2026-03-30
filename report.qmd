@@ -49,10 +49,33 @@ Rows with missing 'purchase_amount' were also removed as they are unrecorded dat
 #### Dataset Description
 The cleaned data set contains `r nrow(campaign_data_clean)` observations and `r ncol(campaign_data_clean)` variables.
 
+```{r}
+ggplot(campaign_data_clean, aes(x = segment, fill = segment)) + 
+    geom_bar() +
+    labs(title = "Number of Customers by Segment",
+    x = "Segment",
+    y = "Count")
+```
 
+
+```{r}
+campaign_data_clean |> 
+    summarise(
+        min_mkting_spend = min(marketing_spend), 
+        max_mkting_spend = max(marketing_spend),
+        avg_mkting_spend = mean(marketing_spend),
+        min_purchase_amt = min(purchase_amount),
+        max_purchase_amt = max(purchase_amount),
+        avg_purchase_amt = mean(purchase_amount)
+    ) |> 
+    knitr::kable(digits = 2, caption = "Min, Max, Mean of Marketing Spend and Purchase Amount")
+```
+
+### Results
 ```{r}
 ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount)) + 
     geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
     labs(title = "Marketing Spend vs Purchase Amount",
         x = "Marketing Spend ($)",
         y = "Purchase Amount ($)")
@@ -60,13 +83,4 @@ ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount)) +
 
 
 ```{r}
-campaign_data_clean |> 
-    group_by(segment) |> 
-    summarise(
-        avg_marketing_spend = mean(marketing_spend),
-        avg_visits = mean(visits),
-        avg_purchase = mean(purchase_amount),
-        n = n()
-    ) |> 
-    knitr::kable()
 ```
