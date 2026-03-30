@@ -20,7 +20,11 @@ library(ggplot2)
 ```
 
 ### Introduction
-This report investigates if higher marketing spend per customer lead to higher purchase amounts using the campaign data of 150 customers. Understanding this relationship will allow us to optimise future marketing budgets towards customers who generate more return.
+This report investigates wether higher marketing spend per customer lead to higher purchase amounts using the campaign data of 150 customers. Understanding this relationship will allow us to optimise future marketing budgets towards customers who generate more return.
 
 ### Research question
+We want to know if higher marketing spend per customer lead to higher purchase amounts by using 'marketing_spend' and 'purchase_amount' from the campaign data. A linear regression model will be used to determine if marketing spend can effectively predict customer purchase amount.
+
+
+
 
