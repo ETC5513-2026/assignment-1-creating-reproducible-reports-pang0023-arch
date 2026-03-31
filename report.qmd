@@ -95,3 +95,19 @@ ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount, colour
     theme_bw() + 
     theme(legend.position = "bottom")
 ```
+
+```{r}
+slopes <- campaign_data_clean |> 
+    group_by(segment) |> 
+    summarise(slope = coef(lm(purchase_amount ~ marketing_spend))[2])
+```
+
+Figure 1 shows an overall positive relationship between marketing spend and purchase amount. This suggests that higher marketing spend does lead to higher purchase amounts.
+
+Figure 2 breaks down the relationship between marketing spend and purchase amount by customer segment. All three segments have a positive relationship, with Consumer customers showing the most data point, and the Enterprise showing the fewest. 
+
+The slope of the regression line in Figure 2 for Consumer customers is `r round(slopes$slope[1], 2)`, Enterprise customers is `r round(slopes$slope[2], 2)`, and SMB customers is `r round(slopes$slope[3], 2)`. This means that for every $1 increase in marketing spend, the purchase amount increases by $`r round(slopes$slope[1], 2)`, $`r round(slopes$slope[2], 2)` and $`r round(slopes$slope[3], 2)` for Consumer, Enterprise and SMB customers respectively. 
+
+This result suggests that the Enterprise customers with the gentlest slope is less effective at driving purchase amounts with higher marketing spend than SMB customers with the steepest slope.
+
+Overall, the results do suggest that higher marketing spend does lead to higher purchase amounts across all segments, with SMB customers generating the highest return per dollar of marketing spend. It is also good to note that Consumer customers are not too far away from SMB customers in generating a high return per dollar of marketing spend. Future marketing budget can prioritise SMB and Consumers for an optimised return.
