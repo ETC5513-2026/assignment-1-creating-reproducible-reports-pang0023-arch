@@ -1,10 +1,12 @@
 ---
 title: "Marketing Report"
+author: Pei Sin Ang
 format:
     html: 
-        theme: cosmo
+      theme: cosmo
+      toc: true
     pdf:
-        toc: false
+      toc: true
 ---
 
 
@@ -21,13 +23,13 @@ library(ggplot2)
 library(lubridate)
 ```
 
-### Introduction
+## Introduction
 This report investigates wether higher marketing spend per customer lead to higher purchase amounts using the campaign data of 150 customers. Understanding this relationship will allow us to optimise future marketing budgets towards customers who generate more return.
 
-### Research question
+## Research question
 We want to know if higher marketing spend per customer lead to higher purchase amounts by using 'marketing_spend' and 'purchase_amount' from the campaign data. A linear regression model will be used to determine if marketing spend can effectively predict customer purchase amount.
 
-### Dataset Introduction
+## Dataset Introduction
 ```{r}
 campaign_data <- read.csv("data/35789190_Pei_Ang.csv")
 
@@ -46,7 +48,7 @@ The'notes' column was also removed as it was to inconsistently documented and no
 
 Rows with missing 'purchase_amount' were also removed as they are unrecorded data that cannot contribute to the analysis.
 
-#### Dataset Description
+### Dataset Description
 The cleaned data set contains `r nrow(campaign_data_clean)` observations and `r ncol(campaign_data_clean)` variables.
 
 ```{r}
@@ -72,7 +74,7 @@ campaign_data_clean |>
     knitr::kable(digits = 2, caption = "Min, Max, Mean of Marketing Spend and Purchase Amount")
 ```
 
-### Results
+## Results
 ```{r}
 ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount)) + 
     geom_point() +
