@@ -54,7 +54,8 @@ ggplot(campaign_data_clean, aes(x = segment, fill = segment)) +
     geom_bar() +
     labs(title = "Number of Customers by Segment",
     x = "Segment",
-    y = "Count")
+    y = "No. of Customers") +
+    theme_bw()
 ```
 
 
@@ -76,11 +77,21 @@ campaign_data_clean |>
 ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount)) + 
     geom_point() +
     geom_smooth(method = "lm", se = FALSE) +
-    labs(title = "Marketing Spend vs Purchase Amount",
+    labs(title = "Figure 1. Marketing Spend vs Purchase Amount",
         x = "Marketing Spend ($)",
-        y = "Purchase Amount ($)")
+        y = "Purchase Amount ($)") +
+    theme_bw()
 ```
 
 
 ```{r}
+ggplot(campaign_data_clean, aes(x = marketing_spend, y = purchase_amount, colour = segment)) + 
+    facet_wrap(~segment) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    labs(title = "Figure 2. Marketing Spend vs Purchase Amount by Segment",
+        x = "Marketing Spend ($)",
+        y = "Purchase Amount ($)") +
+    theme_bw() + 
+    theme(legend.position = "bottom")
 ```
