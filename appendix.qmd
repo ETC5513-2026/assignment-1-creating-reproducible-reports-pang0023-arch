@@ -11,10 +11,15 @@ format:
 # Usage of AI
 
 1. I used AI to clarify how I can parse the dates in different formats.
+
 ![AI suggestion on how to use parse_date_time](images/1_AI_use.png)
 
+
 2. I used AI to figure out if I would like to use boxplots, and if they are feasible.
+
 ![AI suggestion on how to use boxplot](images/2_AI_use.png)
 
+
 3. Had a question on how to best sequence facet wrap with order geom functions.
+
 ![AI suggestion on facet_wrap()](images/3_AI_use.png)
