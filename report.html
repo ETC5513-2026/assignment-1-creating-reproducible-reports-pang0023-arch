@@ -106,17 +106,24 @@ ul.task-list li input[type="checkbox"] {
 <p>The cleaned data set contains 132 observations and 6 variables.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="report_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-customers-by-segment" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-customers-by-segment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="report_files/figure-html/fig-customers-by-segment-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-customers-by-segment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Number of Customers by Segment
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-tbl-cap-location="bottom">
+<div id="tbl-summmary-statistic" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="bottom">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-summmary-statistic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Min, Max, Mean of Marketing Spend and Purchase Amount</caption>
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 16%">
@@ -148,31 +155,47 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-summmary-statistic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Min, Max, Mean of Marketing Spend and Purchase Amount
+</figcaption>
+</figure>
+</div>
+</div>
 </section>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="report_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-marketing-spend-vs-purchase-amt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-marketing-spend-vs-purchase-amt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="report_files/figure-html/fig-marketing-spend-vs-purchase-amt-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marketing-spend-vs-purchase-amt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Marketing Spend vs Purchase Amount
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="report_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-segmented-marketing-spend-vs-purchase-amt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-segmented-marketing-spend-vs-purchase-amt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="report_files/figure-html/fig-segmented-marketing-spend-vs-purchase-amt-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-segmented-marketing-spend-vs-purchase-amt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Marketing Spend vs Purchase Amount by Segment
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Figure 1 shows an overall positive relationship between marketing spend and purchase amount. This suggests that higher marketing spend does lead to higher purchase amounts.</p>
-<p>Figure 2 breaks down the relationship between marketing spend and purchase amount by customer segment. All three segments have a positive relationship, with Consumer customers showing the most data point, and the Enterprise showing the fewest.</p>
-<p>The slope of the regression line in Figure 2 for Consumer customers is 0.99, Enterprise customers is 0.71, and SMB customers is 1.03. This means that for every $1 increase in marketing spend, the purchase amount increases by $0.99, $0.71 and $1.03 for Consumer, Enterprise and SMB customers respectively.</p>
+<p><a href="#fig-marketing-spend-vs-purchase-amt" class="quarto-xref">Figure&nbsp;2</a> shows an overall positive relationship between marketing spend and purchase amount. This suggests that higher marketing spend does lead to higher purchase amounts.</p>
+<p><a href="#fig-segmented-marketing-spend-vs-purchase-amt" class="quarto-xref">Figure&nbsp;3</a> breaks down the relationship between marketing spend and purchase amount by customer segment. All three segments have a positive relationship, with Consumer customers showing the most data point, and the Enterprise showing the fewest.</p>
+<p>The slope of the regression line in <a href="#fig-segmented-marketing-spend-vs-purchase-amt" class="quarto-xref">Figure&nbsp;3</a> for Consumer customers is 0.99, Enterprise customers is 0.71, and SMB customers is 1.03. This means that for every $1 increase in marketing spend, the purchase amount increases by $0.99, $0.71 and $1.03 for Consumer, Enterprise and SMB customers respectively.</p>
 <p>This result suggests that the Enterprise customers with the gentlest slope is less effective at driving purchase amounts with higher marketing spend than SMB customers with the steepest slope.</p>
 <p>Overall, the results do suggest that higher marketing spend does lead to higher purchase amounts across all segments, with SMB customers generating the highest return per dollar of marketing spend. It is also good to note that Consumer customers are not too far away from SMB customers in generating a high return per dollar of marketing spend. Future marketing budget can prioritise SMB and Consumers for an optimised return.</p>
 </section>
